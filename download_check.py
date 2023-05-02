@@ -97,7 +97,7 @@ def main(n):
 
     number_of_workers = 94
     thread_per_worker = 10
-    save_path = f"/home/user/ramdisk/dataset_{n}"
+    save_path = f"/home/user/data_dump/laion"
     print(save_path)
 
     # split_df = split_dataframe(laion_dataset, number_of_workers)

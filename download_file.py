@@ -82,13 +82,15 @@ def check_error(filename: str) -> list:
 def main(n):
     folder_dir = "/home/user/"
     dataset = f"laion_aesthetics_1024_33M_{n}.parquet"
-    laion_dataset = pd.read_parquet(os.path.join(folder_dir, dataset))
+    laion_dataset = pd.read_parquet(os.path.join(folder_dir, dataset)).sample(
+        frac=0.5, replace=True, random_state=1
+    )
 
     # read real db export and training data
 
     number_of_workers = 94
     thread_per_worker = 10
-    save_path = f"/home/user/ramdisk/dataset_{n}"
+    save_path = f"/home/user/data_dump/laion"
     print(save_path)
     split_df = split_dataframe(laion_dataset, number_of_workers)
 
